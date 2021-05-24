@@ -10,7 +10,9 @@ public class Player : MonoBehaviour
     public GameObject gameOver;
     public Text scoText;
     public Text bestScoText;
+    public int hp = 100;
     private float sco;
+    public HpBar hpbar;
     // Start is called before the first frame update
     void Start()
     {
@@ -59,10 +61,7 @@ public class Player : MonoBehaviour
         sco += Time.deltaTime;
         scoText.text ="생존 시간 : " + (int)sco;
 
-        if (Input.GetKey(KeyCode.P))
-        {
-            die();
-        }
+
     }
     public void die()
     {
@@ -81,6 +80,15 @@ public class Player : MonoBehaviour
             PlayerPrefs.SetFloat("bestSco", bestSco);
         }
         bestScoText.text = "최고 기록 : " + (int)bestSco;
+    }
+    public void GetDamage(int damage)
+    {
+        hp -= damage;
+        hpbar.SetHP(hp);
+        if (hp <= 0)
+        {
+            die();
+        }
     }
 }
 

@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
     public float speed = 8f;
     private Rigidbody bulletRigidbody;
     public GameObject p;
+    public int damage = 30;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,13 +22,15 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
+        Debug.Log("앙");
+        if (other.CompareTag("Player"))
         {
             Player player = other.GetComponent<Player>();
 
             if(player != null)
             {
-                player.die();
+                player.GetDamage(damage);
+                Destroy(this.gameObject);
             }
         }
         if (other.CompareTag("Wall"))
