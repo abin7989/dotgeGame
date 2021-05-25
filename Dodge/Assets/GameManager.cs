@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+
+    public GameObject itemPrefab;
+    float prevItemChecj;
+    float prevItemTime;
     public GameObject level;
     public GameObject[] bullerSpawner;
     private Vector3[] bulletSpawners = new Vector3[4];
@@ -15,14 +19,23 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         surviveTime = 0;
+        prevItemTime = 0;
+        prevItemChecj = 3;
     }
 
     // Update is called once per frame
     void Update()
     {
         surviveTime += Time.deltaTime;
+        prevItemTime += Time.deltaTime;
+        Vector3 randpos = new Vector3(Random.Range(-8f, 8f), 0f, Random.Range(-8f, 8f));
 
-        if(surviveTime <5f && spawnCounter ==0)
+        if (prevItemTime >=prevItemChecj)
+        {
+            prevItemTime = 0;
+            GameObject item = Instantiate(itemPrefab, randpos, Quaternion.identity);
+        }
+        if (surviveTime <5f && spawnCounter ==0)
         {
             bullerSpawner[spawnCounter].SetActive(true);
             spawnCounter++;

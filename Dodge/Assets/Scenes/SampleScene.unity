@@ -239,6 +239,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c339971e5b187464f85fd70060fde263, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemPrefab: {fileID: 4932442986058297192, guid: 66298cd495e9aa040bca73cc8bf9eefe,
+    type: 3}
   level: {fileID: 626929240}
   bullerSpawner:
   - {fileID: 1838305526}

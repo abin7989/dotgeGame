@@ -59,7 +59,7 @@ public class Player : MonoBehaviour
         }
 
         sco += Time.deltaTime;
-        scoText.text ="생존 시간 : " + (int)sco;
+        scoText.text = "생존 시간 : " + (int)sco;
 
 
     }
@@ -74,7 +74,7 @@ public class Player : MonoBehaviour
         gameOver.SetActive(true);
         float bestSco = PlayerPrefs.GetFloat("bestSco");
         Debug.Log(bestSco);
-        if (sco> bestSco)
+        if (sco > bestSco)
         {
             bestSco = sco;
             PlayerPrefs.SetFloat("bestSco", bestSco);
@@ -89,6 +89,11 @@ public class Player : MonoBehaviour
         {
             die();
         }
+    }
+    public void GetHeal(int heal)
+    {
+        hp = Mathf.Min(100, hp + heal);
+        hpbar.SetHP(hp);
     }
 }
 
