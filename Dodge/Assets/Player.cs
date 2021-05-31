@@ -13,6 +13,10 @@ public class Player : MonoBehaviour
     public int hp = 100;
     private float sco;
     public HpBar hpbar;
+
+    private float spawnPate = 0.2f;
+    private float timerAfterSpawn;
+    public GameObject playerbulletPrefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -57,9 +61,19 @@ public class Player : MonoBehaviour
 
             }
         }
-
+        
         sco += Time.deltaTime;
+        timerAfterSpawn += Time.deltaTime;
+
         scoText.text = "생존 시간 : " + (int)sco;
+
+        if (Input.GetButton("Fire1") && timerAfterSpawn >= spawnPate)
+        {
+            playerAnimator.SetTrigger("Attack");
+            timerAfterSpawn = 0;
+            Vector3 a = new Vector3(transform.position.x, 1.6f, transform.position.z);
+            GameObject bullet = Instantiate(playerbulletPrefab, a, transform.rotation);
+        }
 
 
     }

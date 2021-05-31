@@ -202,6 +202,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerAnimator: {fileID: 95362173916789402}
   speed: 25
+  gameOver: {fileID: 0}
+  scoText: {fileID: 0}
+  bestScoText: {fileID: 0}
+  hp: 100
+  hpbar: {fileID: 0}
+  playerbulletPrefab: {fileID: 2487168795866943194, guid: 8d0895bc8cdf132409e68174a4b660da,
+    type: 3}
 --- !u!1 &1059911897175824
 GameObject:
   m_ObjectHideFlags: 0

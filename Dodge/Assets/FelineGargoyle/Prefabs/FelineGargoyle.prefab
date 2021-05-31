@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 400000}
-  - component: {fileID: -6925885380607973796}
+  - component: {fileID: 2015964803}
   m_Layer: 0
   m_Name: FelineGargoyle
-  m_TagString: Untagged
+  m_TagString: BulletSpawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-6925885380607973796
+--- !u!114 &2015964803
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,13 +41,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: faee08899e174d1428dda0eb872baf3e, type: 3}
+  m_Script: {fileID: 11500000, guid: 86783e65ef806ae4aae21054d6f86cae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 3819086268305963927, guid: 3d33fe264a9dab449a4eadc40dcba32d,
-    type: 3}
-  spawnRateMin: 0.5
-  spawnRateMax: 3
   speed: 0
 --- !u!1 &100008
 GameObject:
@@ -60,13 +56,16 @@ GameObject:
   - component: {fileID: 400008}
   - component: {fileID: 3300000}
   - component: {fileID: 2300000}
+  - component: {fileID: 1838305528}
+  - component: {fileID: 5042938387349003794}
+  - component: {fileID: 882758029}
   m_Layer: 0
   m_Name: TigerGargoyle-GO
-  m_TagString: Untagged
+  m_TagString: BulletSpawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &400008
 Transform:
   m_ObjectHideFlags: 0
@@ -128,3 +127,52 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &1838305528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faee08899e174d1428dda0eb872baf3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 3819086268305963927, guid: 3d33fe264a9dab449a4eadc40dcba32d,
+    type: 3}
+  spawnRateMin: 0.5
+  spawnRateMax: 3
+  speed: 0
+  hp: 100
+--- !u!65 &5042938387349003794
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100008}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.8335915, y: 3.4062135, z: 2.8973613}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &882758029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faee08899e174d1428dda0eb872baf3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 3819086268305963927, guid: 3d33fe264a9dab449a4eadc40dcba32d,
+    type: 3}
+  spawnRateMin: 0.5
+  spawnRateMax: 3
+  speed: 0
+  hp: 100
