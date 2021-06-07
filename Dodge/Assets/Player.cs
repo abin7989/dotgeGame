@@ -17,12 +17,14 @@ public class Player : MonoBehaviour
     private float spawnPate = 0.2f;
     private float timerAfterSpawn;
     public GameObject playerbulletPrefab;
+    private Transform tr;
     // Start is called before the first frame update
     void Start()
     {
         playerRigidbody = this.GetComponent<Rigidbody>();
         speed = 8f;
         sco = 0;
+        tr = GetComponent<Transform>();
     }
 
     // Update is called once per frame
@@ -46,7 +48,6 @@ public class Player : MonoBehaviour
                 float zSpeed = zInput * speed;
                 Vector3 newV = new Vector3(xSpeed, 0f, zSpeed);
                 playerRigidbody.velocity = newV;
-                transform.LookAt((transform.position + newV));
 
             }
             else
@@ -57,11 +58,18 @@ public class Player : MonoBehaviour
                 float zSpeed = zInput * speed;
                 Vector3 newV = new Vector3(xSpeed, 0f, zSpeed);
                 playerRigidbody.velocity = newV;
-                transform.LookAt((transform.position + newV));
 
             }
         }
-        
+        RaycastHit hit = new RaycastHit();
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if(Physics.Raycast(ray.origin,ray.direction,out hit))
+        {
+            Vector3 proejctedPos = new Vector3(hit.point.x, transform.position.y, hit.point.z);
+            Vector3 currentPos = transform.position;
+            Vector3 rotation = proejctedPos - currentPos;
+            tr.forward = rotation;
+        }
         sco += Time.deltaTime;
         timerAfterSpawn += Time.deltaTime;
 

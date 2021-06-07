@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class BulletSpawner : MonoBehaviour
 {
     public GameObject bulletPrefab;
@@ -14,6 +13,7 @@ public class BulletSpawner : MonoBehaviour
     private float timeAfterSpawn;
     private Vector3 mid;
     public int hp = 100;
+    public MonsterHpBar hpbar;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,9 +41,9 @@ public class BulletSpawner : MonoBehaviour
     }
     public void GetDamage(int damage)
     {
-        Debug.Log("?");
         hp -= damage;
-        if(hp <= 0)
+        hpbar.SetHP(hp);
+        if (hp <= 0)
         {
             gameObject.SetActive(false);
         }
